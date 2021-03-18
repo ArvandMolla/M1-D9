@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <!--
+<!--
         BINGO CHALLENGE!!!
         Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
         Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
@@ -10,6 +8,77 @@
         - Create a USER BOARD with 24 randomized numbers that highlights as the main board does
         - Let the user choose HOW MANY user boards he's willing to play with and create them.
     -->
-  <head></head>
-  <body></body>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bingo Board</title>
+    <style>
+      #bingoBoard {
+        width: 500px;
+        height: 500px;
+        background-color: azure;
+      }
+
+      .child {
+        border: 2px red;
+        background-color: black;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>BINGO BOARD</h1>
+    <!-- <div id="bingoBoard">
+      <div class="child"></div>
+      <div class="child"></div>
+      <div class="child"></div>
+    </div> -->
+    <ul id="bingoList"></ul>
+    <input
+      type="button"
+      id="button"
+      value="try me"
+      onclick="highLightTheNumber()"
+    />
+    <input type="text" id="outPut" value="" disabled />
+
+    <script>
+      window.onload = function () {
+        for (let i = 0; i < 76; i++) {
+          let cell = document.createElement("li");
+          cell.innerText = i + 1;
+          let bingoList = document.getElementById("bingoList");
+          bingoList.appendChild(cell);
+        }
+      };
+
+      const highLightTheNumber = function () {
+        function getRandomInt(min, max) {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        let randomNumber = getRandomInt(1, 77);
+
+        document.getElementById("outPut").value = randomNumber;
+
+        let bingoList = document.getElementsByTagName("ul");
+        console.log(bingoList[2]);
+
+        for (let i = 0; i < 76; i++) {
+          //   console.log(bingoList[i]);
+          //   if (bingoList[i] === randomNumber) {
+          //     bingoList.style.backgroundColor = "green";
+        }
+      };
+    </script>
+  </body>
 </html>
