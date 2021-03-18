@@ -76,7 +76,7 @@
         // bingoList[5].style.backgroundColor = "green";
 
         for (let i = 0; i < 76; i++) {
-          if (bingoList[i].innerText == randomNumber) {
+          if (parseInt(bingoList[i].innerText) === randomNumber) {
             bingoList[i].style.backgroundColor = "green";
           }
         }
